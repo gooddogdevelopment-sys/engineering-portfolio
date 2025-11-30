@@ -4,19 +4,19 @@ import { IconSchool } from '@tabler/icons-react';
 export default function Education() {
   const education = [
     {
-      degree: "Bachelor of Science in Computer Information Systems",
-      minor: "Minor in Sociology",
-      school: "Thomas More University",
-      location: "Crestview Hills, KY",
-      period: "2019",
-      description: "",
+      degree: 'Bachelor of Science in Computer Information Systems',
+      minor: 'Minor in Sociology',
+      school: 'Thomas More University',
+      location: 'Crestview Hills, KY',
+      period: '2019',
+      description: '',
     },
     {
-      degree: "Graduate Coursework in Cyber Security",
-      school: "Wright State University",
-      location: "Dayton, OH",
-      period: "",
-      description: "",
+      degree: 'Graduate Coursework in Cyber Security',
+      school: 'Wright State University',
+      location: 'Dayton, OH',
+      period: '',
+      description: '',
     },
   ];
 
@@ -24,7 +24,9 @@ export default function Education() {
     <Stack gap="xl" mb="xl">
       <Group gap="sm">
         <IconSchool size={32} />
-        <Title order={2} id="education-heading">Education</Title>
+        <Title order={2} id="education-heading">
+          Education
+        </Title>
       </Group>
       <Stack gap="lg">
         {education.map((edu, index) => (
@@ -42,9 +44,17 @@ export default function Education() {
             }}
           >
             <Stack gap="xs">
-              <Title order={3} size="h4" fw={700}>{edu.degree}</Title>
-              {edu.minor && <Text size="sm" c="dimmed" fw={500}>{edu.minor}</Text>}
-              <Text fw={600} c="cyan.7" size="md">{edu.school} - {edu.location}</Text>
+              <Title order={3} size="h4" fw={700}>
+                {edu.degree}
+              </Title>
+              {edu.minor && (
+                <Text size="sm" c="dimmed" fw={500}>
+                  {edu.minor}
+                </Text>
+              )}
+              <Text fw={600} c="cyan.7" size="md">
+                {edu.school} - {edu.location}
+              </Text>
               {edu.period && (
                 <Text size="sm" c="dimmed" fw={500}>
                   <time>{edu.period}</time>

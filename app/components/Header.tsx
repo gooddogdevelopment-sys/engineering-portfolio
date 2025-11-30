@@ -28,7 +28,11 @@ export default function Header() {
 
   const socialLinks = [
     { icon: IconMail, href: `mailto:${process.env.NEXT_PUBLIC_EMAIL}`, label: 'Email' },
-    { icon: IconBrandLinkedin, href: process.env.NEXT_PUBLIC_LINKEDIN_URL || '#', label: 'LinkedIn' },
+    {
+      icon: IconBrandLinkedin,
+      href: process.env.NEXT_PUBLIC_LINKEDIN_URL || '#',
+      label: 'LinkedIn',
+    },
     { icon: IconBrandGithub, href: process.env.NEXT_PUBLIC_GITHUB_URL || '#', label: 'GitHub' },
   ];
 
@@ -52,7 +56,7 @@ export default function Header() {
               </Anchor>
             ))}
           </Group>
-          
+
           <Group gap="sm">
             {socialLinks.map((social) => (
               <ActionIcon
