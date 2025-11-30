@@ -24,7 +24,7 @@ export default function AdditionalTools() {
       </Group>
       <Group gap="md" justify="center">
         {tools.map((tool, i) => (
-          <Badge key={i} variant="outline" size="lg" color="gray">
+          <Badge key={i} variant="outline" size="lg" color="blue">
             {tool}
           </Badge>
         ))}

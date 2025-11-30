@@ -15,7 +15,18 @@ export default function Projects() {
       </Group>
       <SimpleGrid cols={{ base: 1, md: 2 }} spacing="lg">
         {sortedProjects.map((project) => (
-          <Card key={project.id} shadow="sm" padding="0" radius="md" withBorder component="article">
+          <Card 
+            key={project.id} 
+            shadow="sm" 
+            padding="0" 
+            radius="md" 
+            withBorder 
+            component="article"
+            style={{
+              backgroundColor: 'var(--mantine-color-gray-0)',
+              borderColor: 'var(--mantine-color-gray-3)',
+            }}
+          >
             <Card.Section>
               <Image
                 src={project.image}

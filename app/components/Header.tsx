@@ -27,9 +27,9 @@ export default function Header() {
   ];
 
   const socialLinks = [
-    { icon: IconMail, href: 'mailto:your.email@example.com', label: 'Email' },
-    { icon: IconBrandLinkedin, href: 'https://linkedin.com/in/yourprofile', label: 'LinkedIn' },
-    { icon: IconBrandGithub, href: 'https://github.com/yourusername', label: 'GitHub' },
+    { icon: IconMail, href: `mailto:${process.env.NEXT_PUBLIC_EMAIL}`, label: 'Email' },
+    { icon: IconBrandLinkedin, href: process.env.NEXT_PUBLIC_LINKEDIN_URL || '#', label: 'LinkedIn' },
+    { icon: IconBrandGithub, href: process.env.NEXT_PUBLIC_GITHUB_URL || '#', label: 'GitHub' },
   ];
 
   return (

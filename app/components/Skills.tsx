@@ -34,7 +34,17 @@ export default function Skills() {
       </Group>
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg">
         {skillCategories.map((cat, index) => (
-          <Card key={index} shadow="sm" padding="lg" radius="md" withBorder>
+          <Card 
+            key={index} 
+            shadow="sm" 
+            padding="lg" 
+            radius="md" 
+            withBorder
+            style={{
+              backgroundColor: 'var(--mantine-color-gray-0)',
+              borderColor: 'var(--mantine-color-gray-3)',
+            }}
+          >
             <Stack gap="md">
               <Group gap="sm">
                 <Text size="2rem">{cat.icon}</Text>

@@ -126,6 +126,9 @@ export default function Intro() {
 
         <Group gap="md" mt="md">
           <Button 
+            component="a"
+            href="/documents/Brandon Decker - Senior Software Engineer.pdf"
+            download="Brandon_Decker_Resume.pdf"
             size="lg" 
             leftSection={<IconDownload size={20} />}
             variant="filled"
@@ -144,7 +147,7 @@ export default function Intro() {
         <Group gap="lg" mt="lg">
           <Button
             component="a"
-            href="mailto:your.email@example.com"
+            href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}
             variant="subtle"
             leftSection={<IconMail size={20} />}
             size="md"
@@ -153,7 +156,7 @@ export default function Intro() {
           </Button>
           <Button
             component="a"
-            href="https://linkedin.com/in/yourprofile"
+            href={process.env.NEXT_PUBLIC_LINKEDIN_URL || '#'}
             target="_blank"
             rel="noopener noreferrer"
             variant="subtle"
@@ -164,7 +167,7 @@ export default function Intro() {
           </Button>
           <Button
             component="a"
-            href="https://github.com/yourusername"
+            href={process.env.NEXT_PUBLIC_GITHUB_URL || '#'}
             target="_blank"
             rel="noopener noreferrer"
             variant="subtle"

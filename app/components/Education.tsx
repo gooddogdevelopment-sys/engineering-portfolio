@@ -1,13 +1,22 @@
-import { Title, Text, Stack, Box, Group } from '@mantine/core';
+import { Title, Text, Stack, Group, Card } from '@mantine/core';
 import { IconSchool } from '@tabler/icons-react';
 
 export default function Education() {
   const education = [
     {
-      degree: "Bachelor of Science in Computer Science",
-      school: "University Name",
-      period: "2016 - 2020",
-      description: "Focused on software engineering and web development.",
+      degree: "Bachelor of Science in Computer Information Systems",
+      minor: "Minor in Sociology",
+      school: "Thomas More University",
+      location: "Crestview Hills, KY",
+      period: "2019",
+      description: "",
+    },
+    {
+      degree: "Graduate Coursework in Cyber Security",
+      school: "Wright State University",
+      location: "Dayton, OH",
+      period: "",
+      description: "",
     },
   ];
 
@@ -19,14 +28,31 @@ export default function Education() {
       </Group>
       <Stack gap="lg">
         {education.map((edu, index) => (
-          <Box key={index} style={{ borderLeft: '2px solid var(--mantine-color-gray-4)', paddingLeft: '1rem' }} component="article">
-            <Title order={3} size="h4">{edu.degree}</Title>
-            <Text c="dimmed">{edu.school}</Text>
-            <Text size="sm" c="dimmed" mb="xs">
-              <time>{edu.period}</time>
-            </Text>
-            <Text>{edu.description}</Text>
-          </Box>
+          <Card
+            key={index}
+            shadow="sm"
+            padding="lg"
+            radius="md"
+            withBorder
+            component="article"
+            style={{
+              backgroundColor: 'var(--mantine-color-gray-0)',
+              borderColor: 'var(--mantine-color-gray-3)',
+              borderLeft: '4px solid var(--mantine-color-cyan-5)',
+            }}
+          >
+            <Stack gap="xs">
+              <Title order={3} size="h4" fw={700}>{edu.degree}</Title>
+              {edu.minor && <Text size="sm" c="dimmed" fw={500}>{edu.minor}</Text>}
+              <Text fw={600} c="cyan.7" size="md">{edu.school} - {edu.location}</Text>
+              {edu.period && (
+                <Text size="sm" c="dimmed" fw={500}>
+                  <time>{edu.period}</time>
+                </Text>
+              )}
+              {edu.description && <Text mt="xs">{edu.description}</Text>}
+            </Stack>
+          </Card>
         ))}
       </Stack>
     </Stack>
