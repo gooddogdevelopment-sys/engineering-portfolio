@@ -1,0 +1,50 @@
+version: 2
+updates:
+  # Enable version updates for pnpm
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+    open-pull-requests-limit: 10
+    labels:
+      - 'dependencies'
+      - 'automated'
+    commit-message:
+      prefix: 'chore'
+      include: 'scope'
+    # Group minor and patch updates together
+    groups:
+      mantine:
+        patterns:
+          - '@mantine/*'
+      react:
+        patterns:
+          - 'react'
+          - 'react-dom'
+          - '@types/react*'
+      testing:
+        patterns:
+          - 'vitest'
+          - '@testing-library/*'
+          - 'fast-check'
+          - 'jsdom'
+      next:
+        patterns:
+          - 'next'
+          - '@next/*'
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+    open-pull-requests-limit: 5
+    labels:
+      - 'dependencies'
+      - 'github-actions'
+    commit-message:
+      prefix: 'ci'

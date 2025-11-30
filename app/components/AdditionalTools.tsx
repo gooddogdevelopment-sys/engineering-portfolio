@@ -3,19 +3,24 @@ import { IconTools } from '@tabler/icons-react';
 
 export default function AdditionalTools() {
   const tools = [
-    "Visual Studio",
-    "JetBrains Rider",
-    "Visual Studio Code",
-    "Microsoft SQL Server Management Studio",
-    "GitHub",
-    "GitLab",
-    "Postman",
-    "Jira",
-    "Confluence",
+    'Visual Studio',
+    'JetBrains Rider',
+    'Visual Studio Code',
+    'Microsoft SQL Server Management Studio',
+    'GitHub',
+    'GitLab',
+    'Postman',
+    'Jira',
+    'Confluence',
   ];
 
   return (
-    <Stack gap="md" mb="xl" pb="xl" style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
+    <Stack
+      gap="md"
+      mb="xl"
+      pb="xl"
+      style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}
+    >
       <Group gap="sm" justify="center">
         <IconTools size={32} />
         <Title order={2} id="tools-heading">

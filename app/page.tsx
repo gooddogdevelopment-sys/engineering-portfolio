@@ -1,11 +1,11 @@
 import { Container, Stack, Box } from '@mantine/core';
-import Header from "./components/Header";
-import Intro from "./components/Intro";
-import WorkExperience from "./components/WorkExperience";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import AdditionalTools from "./components/AdditionalTools";
-import Education from "./components/Education";
+import Header from './components/Header';
+import Intro from './components/Intro';
+import WorkExperience from './components/WorkExperience';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import AdditionalTools from './components/AdditionalTools';
+import Education from './components/Education';
 
 export default function Home() {
   return (

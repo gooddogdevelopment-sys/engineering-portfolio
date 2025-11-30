@@ -2,22 +2,36 @@
 
 import { useState, useEffect } from 'react';
 import { Title, Text, Stack, Button, Group, Box } from '@mantine/core';
-import { IconBrandGithub, IconBrandLinkedin, IconMail, IconDownload, IconPalette, IconCode, IconRocket, IconArrowRight } from '@tabler/icons-react';
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconMail,
+  IconDownload,
+  IconPalette,
+  IconCode,
+  IconRocket,
+  IconArrowRight,
+} from '@tabler/icons-react';
 
 export default function Intro() {
   const [showIcons, setShowIcons] = useState(false);
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
-    // Start icon animation immediately
-    setShowIcons(true);
-    
+    // Use requestAnimationFrame to avoid synchronous setState in effect
+    const animationFrame = requestAnimationFrame(() => {
+      setShowIcons(true);
+    });
+
     // Show text after icons land (1.2s animation + 0.3s delay)
     const textTimer = setTimeout(() => {
       setShowText(true);
     }, 1500);
 
-    return () => clearTimeout(textTimer);
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      clearTimeout(textTimer);
+    };
   }, []);
 
   const capabilities = [
@@ -27,29 +41,30 @@ export default function Intro() {
   ];
 
   return (
-    <Box 
-      mb="xl" 
-      pb="xl" 
-      style={{ 
+    <Box
+      mb="xl"
+      pb="xl"
+      style={{
         borderBottom: '1px solid var(--mantine-color-gray-3)',
         minHeight: '70vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
       }}
     >
       <Stack gap="xl" align="center" ta="center" maw={800}>
         <Stack gap="md">
-          <Title 
-            order={1} 
-            size="3.5rem" 
+          <Title
+            order={1}
+            size="3.5rem"
             id="intro-heading"
-            style={{ 
+            style={{
               lineHeight: 1.2,
-              background: 'linear-gradient(45deg, var(--mantine-color-blue-6), var(--mantine-color-cyan-6))',
+              background:
+                'linear-gradient(45deg, var(--mantine-color-blue-6), var(--mantine-color-cyan-6))',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              backgroundClip: 'text',
             }}
           >
             Brandon Decker
@@ -60,8 +75,8 @@ export default function Intro() {
         </Stack>
 
         <Text size="lg" c="dimmed" maw={600}>
-          I'm a passionate developer with expertise in building modern web applications.
-          I love creating elegant solutions to complex problems and continuously learning new technologies.
+          I&apos;m a passionate developer with expertise in building modern web applications. I love
+          creating elegant solutions to complex problems and continuously learning new technologies.
         </Text>
 
         {/* Animated Capabilities Section */}
@@ -69,8 +84,8 @@ export default function Intro() {
           <Group gap={0} justify="center" align="center">
             {capabilities.map((capability, index) => (
               <Group key={capability.label} gap={0} align="center">
-                <Stack 
-                  gap="xs" 
+                <Stack
+                  gap="xs"
                   align="center"
                   style={{
                     opacity: showIcons ? 1 : 0,
@@ -91,7 +106,10 @@ export default function Intro() {
                       boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
                     }}
                   >
-                    <capability.icon size={36} color={`var(--mantine-color-${capability.color}-7)`} />
+                    <capability.icon
+                      size={36}
+                      color={`var(--mantine-color-${capability.color}-7)`}
+                    />
                   </Box>
                   <Text
                     fw={600}
@@ -105,7 +123,7 @@ export default function Intro() {
                     {capability.label}
                   </Text>
                 </Stack>
-                
+
                 {/* Arrow between steps */}
                 {index < capabilities.length - 1 && (
                   <Box
@@ -125,20 +143,22 @@ export default function Intro() {
         </Box>
 
         <Group gap="md" mt="md">
-          <Button 
+          <Button
             component="a"
             href="/documents/Brandon Decker - Senior Software Engineer.pdf"
             download="Brandon_Decker_Resume.pdf"
-            size="lg" 
+            size="lg"
             leftSection={<IconDownload size={20} />}
             variant="filled"
           >
             Download Resume
           </Button>
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             variant="light"
-            onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })
+            }
           >
             View My Work
           </Button>
