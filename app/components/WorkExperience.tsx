@@ -1,21 +1,31 @@
 import { Title, Text, Stack, Box, Group, Badge } from '@mantine/core';
+import { IconBriefcase } from '@tabler/icons-react';
 import { workHistory } from '../data/workExperience';
 
 export default function WorkExperience() {
   return (
-    <Stack gap="xl" mb="xl">
-      <Title order={2}>Work Experience</Title>
+    <Stack gap="xl" mb="xl" pb="xl" style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
+      <Group gap="sm">
+        <IconBriefcase size={32} />
+        <Title order={2} id="experience-heading">Work Experience</Title>
+      </Group>
       <Stack gap="xl">
         {workHistory.map((exp) => (
-          <Box key={exp.id} style={{ borderLeft: '2px solid var(--mantine-color-gray-4)', paddingLeft: '1rem' }}>
-            <Title order={3} size="h4">{exp.title}</Title>
-            <Text c="dimmed" fw={500}>{exp.company}</Text>
-            <Text size="sm" c="dimmed" mb="sm">{exp.duration}</Text>
+          <Box key={exp.id} style={{ borderLeft: '2px solid var(--mantine-color-gray-4)', paddingLeft: '1rem' }} component="article">
+            <Title order={3} size="h3" fw={700} mb="xs">{exp.title}</Title>
+            <Group justify="space-between" align="center" mb="sm">
+              <Text fw={600} c="blue.7" size="md">
+                @ {exp.company}
+              </Text>
+              <Text size="sm" c="dimmed" fw={500}>
+                <time>{exp.duration}</time>
+              </Text>
+            </Group>
             <Text mb="sm">{exp.description}</Text>
             
-            <Group gap="xs" mb="sm">
+            <Group gap="xs" mb="sm" role="list" aria-label="Technologies used">
               {exp.technologies.map((tech, i) => (
-                <Badge key={i} variant="light" size="sm">{tech}</Badge>
+                <Badge key={i} variant="light" size="sm" role="listitem">{tech}</Badge>
               ))}
             </Group>
 

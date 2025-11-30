@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import '@mantine/core/styles.css';
 import "./globals.css";
@@ -14,8 +14,8 @@ const getGAId = (): string => {
 }
 
 export const metadata: Metadata = {
-  title: "Portfolio - [Your Name]",
-  description: "Showcasing my coding experience and projects",
+  title: "Portfolio - Brandon Decker",
+  description: "Senior Software Engineer showcasing coding experience and projects",
 };
 
 export default function RootLayout({
@@ -25,15 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <ColorSchemeScript />
-      </head>
       <body>
         <MantineProvider>
           {children}
         </MantineProvider>
+        <GoogleAnalytics gaId={getGAId()} />
       </body>
-      <GoogleAnalytics gaId={getGAId()} />
     </html>
   );
 }
