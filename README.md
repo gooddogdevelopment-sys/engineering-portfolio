@@ -134,6 +134,7 @@ The `firebase.json` configuration exports the static site to the `out` directory
 ### Adding Projects
 
 Edit `app/data/projects.ts` to add or modify projects. Each project includes:
+
 - Title, description, and images
 - Technologies and tags
 - Status and completion date
@@ -143,6 +144,7 @@ Edit `app/data/projects.ts` to add or modify projects. Each project includes:
 ### Updating Work Experience
 
 Edit `app/data/workExperience.ts` to update employment history with:
+
 - Job title and company
 - Duration and description
 - Technologies used
